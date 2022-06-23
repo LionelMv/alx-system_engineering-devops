@@ -12,3 +12,9 @@ a script that changes the owner of the file hello to the user betty
 
 File: 4-empty
 a script that creates an empty file called hello
+
+File: 5-execute
+a script that adds execute permission to the owner of the file hello
+
+File: 6-multiple_permissions
+a script that adds execute permission to the owner and the group owner, and read permission to other users, to the file hello
