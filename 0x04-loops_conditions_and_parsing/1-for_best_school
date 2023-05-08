@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Displays Best School 10 times.
+# Shellcheck style wants dummy _ variable
+#+ when not in use.
 
-for i in {1..10}
+for _ in {1..10}
 do
 	echo "Best School"
 done
