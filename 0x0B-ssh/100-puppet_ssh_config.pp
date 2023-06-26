@@ -12,7 +12,11 @@ file { '/etc/ssh/ssh_config':
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
-  content => template('./ssh_config'),
+  content => @(END),
+    Host 34.239.207.160
+        IdentityFile ~/.ssh/school
+        PasswordAuthentication no
+  END
   notify  => Service['ssh'],
 }
 
