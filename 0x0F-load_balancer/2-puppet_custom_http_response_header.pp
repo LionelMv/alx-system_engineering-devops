@@ -11,6 +11,7 @@ server {
     server_name _;
 
     location / {
+        add_header X-Served-By ${hostname};
         try_files $uri $uri/ =404;
     }
 
@@ -46,20 +47,8 @@ file { '/etc/nginx/sites-available/default':
   notify  => Service['nginx'],
 }
 
-service { 'nginx':
-  ensure  => running,
-  enable  => true,
-  require => Package['nginx'],
-}
-
-exec { 'add_custom_header':
-  command     => '/bin/sed -i "/^\s*http {/a \ \ \ \ add_header X-Served-By $var;" /etc/nginx/nginx.conf',
-  refreshonly => true,
-  subscribe   => File['/etc/nginx/sites-available/default'],
-}
-
-service { 'nginx':
-  ensure    => running,
-  enable    => true,
-  subscribe => Exec['add_custom_header'],
+# Restart Nginx service
+exec { 'restart service':
+  command  => 'sudo service nginx restart',
+  provider => shell,
 }
