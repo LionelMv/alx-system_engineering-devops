@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Nginx must be running, and listening on port 80
+#Bug: sudo nginx status returns 'not running'; netstat -lpn does not show port 80
+
+sudo sed -i "s/sites-enabled/sites-available/" /etc/nginx/nginx.conf
+sudo service nginx restart
