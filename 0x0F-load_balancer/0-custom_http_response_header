@@ -38,8 +38,13 @@ new_config=\
     }
 }
 "
+# Backup default file before making modifications.
+# sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_backup
 
 echo "$new_config" > /etc/nginx/sites-available/default
+
+# Backup nginx.conf file before making modificatins.
+# sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx_backup.conf
 
 # Configure nginx.conf to add custom header
 sed -i "/^\s*http {/a \ \ \ \ add_header X-Served-By $server_hostname;" /etc/nginx/nginx.conf
