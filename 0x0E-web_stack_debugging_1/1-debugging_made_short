@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Script to listen to port 80
+sed -i "s/sites-enabled/sites-available/" /etc/nginx/nginx.conf
+service nginx stop &> /dev/null
+service nginx status | grep -q "not running"
+
