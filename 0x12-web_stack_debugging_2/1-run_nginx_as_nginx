@@ -5,8 +5,8 @@
 sudo sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
 
 # change ownership and permissions of config file
-#chown nginx:nginx /etc/nginx/nginx.conf
-#chmod 644 /etc/nginx/nginx.conf
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
 
 # update nginx file to listen to 8080
 sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
