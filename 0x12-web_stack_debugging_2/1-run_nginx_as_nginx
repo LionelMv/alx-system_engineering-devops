@@ -13,4 +13,4 @@ sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-availabl
 
 # netstat -lpn shows apache2 is using 8080
 pkill apache2
-sudo -u nginx service nginx restart
+sudo service nginx restart
