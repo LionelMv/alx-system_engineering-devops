@@ -20,4 +20,4 @@ if __name__ == '__main__':
     print(f"Employee {employee_name} is done with tasks"
           f"({len(completed_tasks)}/{len(todos)}):")
     for task in completed_tasks:
-        print(f"\t{task}")
+        print(f"\t {task}")
