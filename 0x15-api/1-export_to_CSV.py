@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # Prepare data for CSV export
     csv_data = []
     for task in todos:
-        task_status = "Completed" if task["completed"] else "Not Completed"
+        task_status = task["completed"]
         task_title = task["title"]
         csv_data.append([user_id, username, task_status, task_title])
 
