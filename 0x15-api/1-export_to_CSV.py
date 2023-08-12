@@ -29,6 +29,6 @@ if __name__ == "__main__":
     filename = f"{user_id}.csv"
     with open(filename, "w", newline="") as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        writer.writerow([
-            "USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        # writer.writerow([
+        #   "USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         writer.writerows(csv_data)
