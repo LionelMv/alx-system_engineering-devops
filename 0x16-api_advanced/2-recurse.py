@@ -25,6 +25,8 @@ def recurse(subreddit, hot_list=[], after="None"):
         return None
 
     r_data = response.json()
+    if r_data == {}:
+        return None
     # print(r_data)
     try:
         results = r_data['data']['children']
