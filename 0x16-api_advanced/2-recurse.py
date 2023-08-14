@@ -21,11 +21,11 @@ def recurse(subreddit, hot_list=[], after="None"):
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
-    if response.status_code == 400:
+    if response.status_code == 404:
         return None
 
     r_data = response.json()
-    # print(r_data)
+    print(r_data)
     try:
         results = r_data['data']['children']
         # results = data.get("data", {}).get("children", [])
