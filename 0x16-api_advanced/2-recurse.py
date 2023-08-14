@@ -21,17 +21,22 @@ def recurse(subreddit, hot_list=[], after="None"):
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
-    if response.status_code != 200:
+    if response.status_code == 400:
         return None
 
-    data = response.json()
-    results = data['data']['children']
+    r_data = response.json()
+    # print(r_data)
+    try:
+        results = r_data['data']['children']
+        # results = data.get("data", {}).get("children", [])
+    except KeyError:
+        return hot_list
 
     for entry in results:
         # hot_list.append(entry.get('data').get('title'))
         hot_list.append(entry["data"]["title"])
 
-    next_after = data.get('data').get('after')
+    next_after = r_data.get('data').get('after')
     if not next_after:
         return hot_list
     return recurse(subreddit, hot_list, next_after)
