@@ -30,7 +30,7 @@ def recurse(subreddit, hot_list=[], after="None"):
         results = r_data['data']['children']
         # results = data.get("data", {}).get("children", [])
     except KeyError:
-        return hot_list
+        return None
 
     for entry in results:
         # hot_list.append(entry.get('data').get('title'))
